@@ -1,0 +1,37 @@
+/*
+COLORS:
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+*/
+
+/* A universal selector will select each and every element on the page and then
+apply these decorations to it. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, 
+        rgba(126, 213, 111, 0.80), 
+        rgba(40, 180, 133, 0.80)), 
+        url("../img/hero.jpg");
+    /* cover takes whatever the width of the viewport and it will try to fit the elment inside the box */
+    background-size: cover;
+    /* ensures the top of the image stays the same within the vh */
+    background-position: top;
+    /* clip a portion of the image which starts from top left corner and clockwise direction */
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
