@@ -123,6 +123,22 @@ body {
     }
 }
 
+/* header button */
+@keyframes moveInBottom {
+    /* start of animation, the opacity will be none*/
+    0% {
+        opacity: 0;
+        /* x is from left to right, y goes top to bottom */
+        transform: translateY(30px);
+    }
+
+    /* end of animation - opacity will be 1 */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
 /* pseudoclass is a state element */
 .btn:link,
 .btn:visited {
@@ -132,6 +148,7 @@ body {
     display: inline-block;
     border-radius: 100px;
     transition: all .2s;
+    position: relative;
 }
 
 .btn:hover {
@@ -147,4 +164,32 @@ body {
 .btn-white {
     background-color: #ffffff;
     color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* set this element behind the button */
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #ffffff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.2) scaleY(1.1);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 1s ease-out;
+    animation-fill-mode: backwards;
 }
