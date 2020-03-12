@@ -1,0 +1,25 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Landing Page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paperjoob/natours.git"
+  },
+  "author": "see",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paperjoob/natours/issues"
+  },
+  "homepage": "https://github.com/paperjoob/natours#readme",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}
