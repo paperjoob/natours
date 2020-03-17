@@ -13,6 +13,7 @@ $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
 $color-grey-dark: #777;
 $color-text-white: #fff;
+$color-black: #000;
 
 * {
     margin: 0;
@@ -42,24 +43,25 @@ body {
     position: relative;
     /* clip a portion of the image which starts from top left corner and clockwise direction */
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-}
 
-.logo-box {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-}
+    // nested headers
+    &__logo-box {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+    }
 
-.logo {
-    height: 35px;
-}
+    &__logo {
+        height: 35px;
+    }
 
-.text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 }
 
 .heading-primary {
@@ -68,27 +70,27 @@ body {
     
     backface-visibility: hidden;
     margin-bottom: 60px;
-}
 
-/* create a block display */
-.heading-primary-main {
-    display: block;
-    font-size: 60px;
-    font-weight: 400;
-    letter-spacing: 35px;
-    /* enter in the animation name and duration */
-    animation-name: moveInLeft;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-}
+    /* create a block display */
+    &-main {
+        display: block;
+        font-size: 60px;
+        font-weight: 400;
+        letter-spacing: 35px;
+        /* enter in the animation name and duration */
+        animation-name: moveInLeft;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+    }
 
-.heading-primary-sub {
-    display: block;
-    font-size: 21px;
-    font-weight: 700;
-    letter-spacing: 17.4px;
-    /* enter in the animation name and duration */
-    animation: moveInRight 1s ease-in-out;
+    &-sub {
+        display: block;
+        font-size: 21px;
+        font-weight: 700;
+        letter-spacing: 17.4px;
+        /* enter in the animation name and duration */
+        animation: moveInRight 1s ease-in-out;
+    }
 }
 
 /* animation for header */
@@ -147,56 +149,59 @@ body {
 }
 
 /* pseudoclass is a state element */
-.btn:link,
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px 40px;
-    display: inline-block;
-    border-radius: 100px;
-    transition: all .2s;
-    position: relative;
-}
+// buttons
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 15px 40px;
+        display: inline-block;
+        border-radius: 100px;
+        transition: all .2s;
+        position: relative;
+    }
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
-}
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
-.btn:active {
-    transform: translateY(1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
-}
+        &::after {
+            transform: scaleX(1.2) scaleY(1.1);
+            opacity: 0;
+        }
+    }
 
-.btn-white {
-    background-color: $color-text-white;
-    color: $color-grey-dark;
-}
+    &:active {
+        transform: translateY(1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
+    }
 
-.btn::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* set this element behind the button */
-    z-index: -1;
-    transition: all .4s;
-}
+    &-white {
+        background-color: $color-text-white;
+        color: $color-grey-dark;
 
-.btn-white::after {
-    background-color: $color-text-white;
-}
+        &::after {
+            background-color: $color-text-white;
+        }
+    }
 
-.btn:hover::after {
-    transform: scaleX(1.2) scaleY(1.1);
-    opacity: 0;
-}
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* set this element behind the button */
+        z-index: -1;
+        transition: all .4s;
+    }
 
-.btn-animated {
-    animation: moveInBottom 1s ease-out;
-    animation-fill-mode: backwards;
+    &-animated {
+        animation: moveInBottom 1s ease-out;
+        animation-fill-mode: backwards;
+    }
 }
