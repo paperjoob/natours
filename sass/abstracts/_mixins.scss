@@ -1,0 +1,9 @@
+// mixins are reusable codes
+@mixin clearfix {
+    // clearfix appends a pseudo element after the element that clears the floats
+    &::after {
+        content: ""; // empty pseudo code
+        display: table;
+        clear: both; // clear both floats left and right
+    }
+}
