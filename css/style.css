@@ -1,9 +1,3 @@
-/*
-COLORS:
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-*/
 /* A universal selector will select each and every element on the page and then
 apply these decorations to it. */
 * {
@@ -11,59 +5,11 @@ apply these decorations to it. */
   padding: 0;
   box-sizing: border-box; }
 
+html {
+  font-size: 62.5%; }
+
 body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #777;
-  padding: 30px; }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
-  /* cover takes whatever the width of the viewport and it will try to fit the elment inside the box */
-  background-size: cover;
-  /* ensures the top of the image stays the same within the vh */
-  background-position: top;
-  position: relative;
-  /* clip a portion of the image which starts from top left corner and clockwise direction */
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
-  .header__logo-box {
-    position: absolute;
-    top: 40px;
-    left: 40px; }
-  .header__logo {
-    height: 35px; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  margin-bottom: 60px;
-  /* create a block display */ }
-  .heading-primary-main {
-    display: block;
-    font-size: 60px;
-    font-weight: 400;
-    letter-spacing: 35px;
-    /* enter in the animation name and duration */
-    animation-name: moveInLeft;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out; }
-  .heading-primary-sub {
-    display: block;
-    font-size: 21px;
-    font-weight: 700;
-    letter-spacing: 17.4px;
-    /* enter in the animation name and duration */
-    animation: moveInRight 1s ease-in-out; }
+  box-sizing: border-box; }
 
 /* animation for header */
 @keyframes moveInLeft {
@@ -103,6 +49,37 @@ body {
   100% {
     opacity: 1;
     transform: translate(0); } }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 60px;
+  /* create a block display */ }
+  .heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    /* enter in the animation name and duration */
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out; }
+  .heading-primary-sub {
+    display: block;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    /* enter in the animation name and duration */
+    animation: moveInRight 1s ease-in-out; }
 
 /* pseudoclass is a state element */
 .btn:link, .btn:visited {
@@ -147,3 +124,26 @@ body {
 .btn-animated {
   animation: moveInBottom 1s ease-out;
   animation-fill-mode: backwards; }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  /* cover takes whatever the width of the viewport and it will try to fit the elment inside the box */
+  background-size: cover;
+  /* ensures the top of the image stays the same within the vh */
+  background-position: top;
+  position: relative;
+  /* clip a portion of the image which starts from top left corner and clockwise direction */
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px; }
+  .header__logo {
+    height: 35px; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }

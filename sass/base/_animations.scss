@@ -1,0 +1,54 @@
+/* animation for header */
+@keyframes moveInLeft {
+    /* start of animation, the opacity will be none*/
+    0% {
+        opacity: 0;
+        /* x is from left to right, y goes top to bottom */
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(5px);
+    }
+
+    /* end of animation - opacity will be 1 */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    /* start of animation, the opacity will be none*/
+    0% {
+        opacity: 0;
+        /* x is from left to right, y goes top to bottom */
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-5px);
+    }
+
+    /* end of animation - opacity will be 1 */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+/* header button */
+@keyframes moveInBottom {
+    /* start of animation, the opacity will be none*/
+    0% {
+        opacity: 0;
+        /* x is from left to right, y goes top to bottom */
+        transform: translateY(30px);
+    }
+
+    /* end of animation - opacity will be 1 */
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
