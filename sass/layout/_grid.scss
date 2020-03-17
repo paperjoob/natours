@@ -1,6 +1,6 @@
 .row {
     max-width: $grid-width;
-    background-color: lightgray;
+    // background-color: lightgray;
     margin: 0 auto;
 
 
@@ -13,7 +13,7 @@
 
     // starts with is the ^= and apply these properties to it
     [class^="col-"] {
-        background-color: orangered;
+        // background-color: orangered;
         float: left;
 
         // do not add a gutter to the right for the last child
