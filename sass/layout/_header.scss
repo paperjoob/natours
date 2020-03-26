@@ -10,6 +10,7 @@
     background-position: top;
     position: relative;
     /* clip a portion of the image which starts from top left corner and clockwise direction */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
     // nested headers
