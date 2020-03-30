@@ -1,0 +1,53 @@
+.form {
+
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem; // top and side
+        border-radius: 2px;
+        background-color: rgba($color-text-white, .5);
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+
+        // input focus
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            border-bottom: 3px solid $color-primary;
+        }
+
+        // when the input is selected and its missing the required parts, change the border to this color
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+            // psuedo elements for the placeholder and styled
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+    }   
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+        transition: all .3s;
+    }
+
+    // when the placeholder is shown, we want the label to be hidden
+    // + is used for sibling or adjacent , another sibling selector is ~ = more general
+    &__input:placeholder-shown + &__label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem); // reveal itself
+    }
+}
