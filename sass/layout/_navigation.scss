@@ -13,6 +13,9 @@
         right: 6rem;
         border-radius: 50%;
         z-index: 10000;
+        box-shadow: 0 1rem 3rem rgba($color-black, .2);
+        text-align: center;
+        cursor: pointer;
     }
 
     &__background {
@@ -24,24 +27,29 @@
         right: 6.5rem;
         background-image: radial-gradient($color-primary-light, $color-primary-dark); // radial starts in the middle and outer
         z-index: 1000;
-
-        transform: scale(80);
+        transition: transform .8s cubic-bezier(0.8, -0.05, 0.06, 1.2); // start out slower then accelerate the transition, much like ease-in or ease-out
+        // transform: scale(80);
     }
 
     &__nav {
         height: 100vh;
-        width: 100%;
         position: fixed;
         top: 0;
         right: 0;
         z-index: 1500;
+        
+        // set the nav opacity to 0
+        opacity: 0;
+        width: 0;
+        transition: all .8s; // when closing, take .8s seconds to ALL elements - opacity, width
     }
 
     // UL
     &__list {
-        @include centerHorizontal;
+        @include centerHorizontal; // mixin
         list-style: none;
         text-align: center;
+        width: 100%;
     }
 
     // List
@@ -76,7 +84,70 @@
             color: $color-primary;
             transform: translateX(1rem);
         }
-    
-    
+    }
+
+    // FUNCTIONALITY
+    // sibling of checkbox
+    &__checkbox:checked ~ &__background {
+        transform: scale(80); // when menu is clicked, scale it 80 times
+    }
+
+    // when menu is clicked, the nav is now showing with a width of 100% !
+    &__checkbox:checked ~ &__nav {
+        opacity: 1;
+        width: 100%;
+    }
+
+    // menu icon
+    &__icon {
+        position: relative;
+        margin-top: 3.5rem;
+
+        &, // icon element itself
+        &::before, // before
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-grey-dark-3;
+            display: inline-block;
+        }
+
+        // in order for before and after to appear on the page, they need content property defined
+        &::before, // before
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s; // transition before and after effects
+        }
+
+        // need a before and after, one on the top and one on the bottom
+        &::before { top: -.8rem; } // move it up
+        &::after { top: .8rem; } // move it down
+    }
+
+    // on hover and BEFORE it is pressed
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+
+    // after hover
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+
+    // when the checkbox is selected, we select the button and then the icon
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent; // make the middle span element transparent
+    }
+
+    &__checkbox:checked + &__button &__icon::before { 
+        top: 0;
+        transform: rotate(135deg); // rotate the line 45 deg
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotate(-135deg); // rotate the line -45 deg
     }
 }
