@@ -10,8 +10,14 @@
     background-position: top;
     position: relative;
     /* clip a portion of the image which starts from top left corner and clockwise direction */
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+
+    @include respond(phone) {
+        // change the clip paths for phone sizes
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+    }
 
     // nested headers
     &__logo-box {

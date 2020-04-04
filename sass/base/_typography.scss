@@ -4,7 +4,6 @@ body {
     font-size: 16px;
     line-height: 1.7;
     color: $color-grey-dark;
-    padding: 30px;
 }
 
 .heading-primary {
@@ -24,6 +23,12 @@ body {
         animation-name: moveInLeft;
         animation-duration: 2s;
         animation-timing-function: ease-in-out;
+
+        // respond mixin for Phone breakpoint
+        @include respond(phone) {
+            letter-spacing: 1rem; // decrease letter spacing
+            font-family: 5rem; // decrease font family size
+        }
     }
 
     &-sub {
@@ -33,6 +38,12 @@ body {
         letter-spacing: 17.4px;
         /* enter in the animation name and duration */
         animation: moveInRight 1s ease-in-out;
+
+        // respond mixin for Phone breakpoint
+        @include respond(phone) {
+            letter-spacing: .5rem;
+            font-family: 5rem;
+        }
     }
 }
 
@@ -46,6 +57,16 @@ body {
     color: transparent;
     letter-spacing: 2px;
     transition: all .2s;
+
+    // respond mixin for Tablet Portrait breakpoint
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+
+    // respond mixin for Phone breakpoint
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
 
     &:hover {
         transform: skewY(2deg) skewX(10deg) scale(1); // rotating the letters on hover

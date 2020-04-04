@@ -7,6 +7,17 @@
     // .row:lastchild() select everything except the last child
     &:not(:last-child) {
         margin-bottom: $gutter-veritical;
+
+            // remove gutter - spaces between the columns
+            @include respond(tab-port) {
+                margin-bottom: $gutter-veritical-small;
+            }
+    }
+
+    // change the max width to be half width
+    @include respond(tab-port) {
+        max-width: 50rem;
+        padding: 0 3rem; // no padding on top and bottom but padding on the side
     }
 
     @include clearfix;
@@ -19,6 +30,17 @@
         // do not add a gutter to the right for the last child
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
+
+            // remove margin
+            @include respond(tab-port) {
+                margin-right: 0;
+                margin-bottom: $gutter-veritical-small;
+            }
+        }
+
+        // set width of all columns to 100% - basically transformed into a row
+        @include respond(tab-port) {
+            width: 100% !important;
         }
     }
 
